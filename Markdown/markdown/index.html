@@ -1,0 +1,1348 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cpwiki.v6.army/Markdown/markdown/">
+      
+      
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Markdown语法学习 精简版 - Cola Pig's Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simple-markdown-markdown" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Cola Pig&#39;s Wiki" class="md-header__button md-logo" aria-label="Cola Pig's Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cola Pig's Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Markdown语法学习 精简版
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Cola-Pig1121/cpwiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cola Pig&#39;s Wiki" class="md-nav__button md-logo" aria-label="Cola Pig's Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cola Pig's Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Cola-Pig1121/cpwiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    简介
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    自我介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Markdown指南
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Markdown指南
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdown.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Markdown指南
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    标签
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../liuyanban/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    留言板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../link/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友链
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      最常用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最常用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      分级标题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      目录
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      斜体/粗体/删除线/下划线/背景高亮
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      无序列表/有序列表
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="无序列表/有序列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      无序列表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      多级无序列表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      有序列表/多级有序列表
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务列表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      表格
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      超链接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      插入图片
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      插入视频
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="代码块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      行内代码块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      多行代码块
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      对齐方式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      分割线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      换行
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      高级
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="高级">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置字体/颜色
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="设置字体/颜色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用颜色
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      锚点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      注脚
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      多级引用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latex" class="md-nav__link">
+    <span class="md-ellipsis">
+      LaTeX公式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      转义字符
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    <span class="md-ellipsis">
+      内联 HTML 语法/特殊字符自动转义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      注释
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      空格
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <a href="../../tag/#tag:markdown" class="md-tag">Markdown</a>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+<h1 id="simple-markdown-markdown">:simple-markdown: <a href="https://www.markdown.xyz/">Markdown语法学习</a> 精简版</h1>
+<blockquote>
+<p><span id="top"><strong>文章开头</strong></span>  </p>
+</blockquote>
+<p>介绍一下Markdown：<br />
+Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。<br />
+Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。Markdown 编写的文档后缀为 .md, .markdown。  </p>
+<p>此笔记学习摘抄自<a href="https://github.com/Yang-Xijie/yang-xijie.github.io/blob/main/docs/BLOG/Markdown/grammars.md?plain=1">Markdown语法学习 精简版</a>，学习借鉴大佬之经验（Ctrl C+V）</p>
+<p><strong>也推荐看:<a href="https://www.markdown.xyz/">Markdown中文指南</a></strong></p>
+<p>一些Markdown文档创作工具：</p>
+<ul>
+  <li><strong>Mac:</strong> <a href="https://macdown.uranusjr.com/">MacDown</a>, <a href="https://ia.net/writer">iA Writer</a> 或 <a href="https://marked2.com/">Marked 2</a></li>
+  <li><strong>iOS / Android:</strong> <a href="https://ia.net/writer">iA Writer</a></li>
+  <li><strong>Windows:</strong> <a href="https://wereturtle.github.io/ghostwriter/">ghostwriter</a> 或 <a href="https://markdownmonster.west-wind.com/">Markdown Monster</a></li>
+  <li><strong>Linux:</strong> <a href="https://github.com/retext-project/retext">ReText</a> 或 <a href="https://wereturtle.github.io/ghostwriter/">ghostwriter</a></li>
+  <li><strong>Web:</strong> <a href="https://dillinger.io/">Dillinger</a> 或 <a href="https://stackedit.io/">StackEdit</a></li>
+</ul>
+
+<h2 id="_1">最常用</h2>
+<h3 id="_2">分级标题</h3>
+<pre><code># 一级标题 (注意有空格)
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题  &lt;!--最多6级标题--&gt;
+</code></pre>
+<h3 id="_3">目录</h3>
+<p>在任意位置插入 <code>[toc]</code> 显示全文<span id="catalog"><strong>目录</strong></span>结构</p>
+<p>示例见文章开头（点击<a href="#top">这里</a>跳转到开头查看目录）</p>
+<h3 id="_4">斜体/粗体/删除线/下划线/背景高亮</h3>
+<pre><code>*斜体*    _斜体_
+**粗体**    __粗体__
+***加粗斜体***    ___加粗斜体___
+~~删除线~~
+&lt;u&gt;下划线&lt;/u&gt;
+==背景高亮==
+</code></pre>
+<p><em>斜体</em>    <em>斜体</em></p>
+<p><strong>粗体</strong>    <strong>粗体</strong></p>
+<p><strong><em>加粗斜体</em></strong>    <strong><em>加粗斜体</em></strong></p>
+<p>~~删除线~~</p>
+<p><u>下划线</u></p>
+<p>==背景高亮==</p>
+<h3 id="_5">无序列表/有序列表</h3>
+<h4 id="_6">无序列表</h4>
+<pre><code>* 无序列表项 一
++ 无序列表项 二
+- 无序列表项 三
+</code></pre>
+<ul>
+<li>无序列表项 一</li>
+<li>无序列表项 二</li>
+<li>无序列表项 三</li>
+</ul>
+<h4 id="_7">多级无序列表</h4>
+<pre><code>* 今天`* + 空格键`
+* 明天
+    * 学习 `TAB(或4个空格) + * + 空格键`
+    * 购物
+        * 面包
+        * 牛奶
+* 后天
+</code></pre>
+<ul>
+<li>今天<code>* + 空格键</code></li>
+<li>明天<ul>
+<li>学习 <code>TAB(或4个空格) + * + 空格键</code></li>
+<li>购物<ul>
+<li>面包</li>
+<li>牛奶</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>后天</li>
+</ul>
+<h4 id="_8">有序列表/多级有序列表</h4>
+<pre><code>1. 有序列表项 一 `数字 + . + 空格键`
+2. 有序列表项 二
+    1. 有序列表项 二(1) `TAB(或4个空格) + 数字 + . + 空格键`
+    2. 有序列表项 二(2)
+        1. 有序列表项 二(2).1
+3. 有序列表项 三
+</code></pre>
+<ol>
+<li>有序列表项 一 <code>数字 + . + 空格键</code></li>
+<li>有序列表项 二<ol>
+<li>有序列表项 二(1) <code>TAB(或4个空格) + 数字 + . + 空格键</code></li>
+<li>有序列表项 二(2)<ol>
+<li>有序列表项 二(2).1</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>有序列表项 三</li>
+</ol>
+<h3 id="_9">任务列表</h3>
+<pre><code>- [ ] 任务一 未做任务 `- + 空格 + [ ]`
+- [x] 任务二 已做任务 `- + 空格 + [x]`
+</code></pre>
+<ul>
+<li>[ ] 任务一 未做任务 <code>- + 空格 + [ ]</code></li>
+<li>[x] 任务二 已做任务 <code>- + 空格 + [x]</code></li>
+</ul>
+<h3 id="_10">表格</h3>
+<p>第一行为表头，第二行分隔表头和主体部分(如果表格无法显示可以尝试把第二行的 <code>-</code> 变为 <code>---</code> )，可以指定所在列的对齐方式，第三行开始每一行为一个表格行。列与列之间用 <code>|</code> 隔开。(注：原生方式的表格每一行的两边也要有 <code>|</code> )</p>
+<p><strong>对齐方式</strong> <code>:- 左对齐</code> <code>- 中心对齐</code> <code>-: 右对齐</code></p>
+<pre><code>第一列|第二列|第三列
+:-|-|-:
+a11|a12|a13
+a21|a22|a33
+a31|a32|a33
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">表头一</th>
+<th>表头二</th>
+<th style="text-align: right;">表头三</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">a11</td>
+<td>a12</td>
+<td style="text-align: right;">a13</td>
+</tr>
+<tr>
+<td style="text-align: left;">a21</td>
+<td>a22</td>
+<td style="text-align: right;">a33</td>
+</tr>
+<tr>
+<td style="text-align: left;">a31</td>
+<td>a32</td>
+<td style="text-align: right;">a33</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_11">超链接</h3>
+<p>[ ]里写链接文字，( )里写链接地址, ( )中的" "中可以为链接指定title属性，title属性可加可不加。title属性的效果是鼠标悬停在链接上会出现指定的 title文字，链接地址与title前有一个空格。</p>
+<pre><code>右边是链接[链接文字](链接 &quot;title&quot;)
+</code></pre>
+<pre><code>右边是链接[GitHub](https://github.com &quot;GitHub&quot;)
+</code></pre>
+<p>右边是链接<a href="https://github.com" title="GitHub">GitHub</a></p>
+<h3 id="_12">插入图片</h3>
+<p><strong>格式</strong>：<code>!</code> <code>[图片标题]</code> <code>(图片地址 "图片Title”)</code></p>
+<p>其中<code>图片标题</code>会被某些网站和编辑器显示在图片下方</p>
+<h3 id="_13">插入视频</h3>
+<p><strong>格式</strong>：</p>
+<pre><code>&lt;iframe height= width= src=&quot;链接&quot;&gt;
+</code></pre>
+<h3 id="_14">代码块</h3>
+<h4 id="_15">行内代码块</h4>
+<p>用“ ` ”左右包裹代码  </p>
+<pre><code>`printf()` 函数  
+</code></pre>
+<p>显示为<code>printf()</code> 函数</p>
+<h4 id="_16">多行代码块</h4>
+<p>用“ ``` ”上下包裹代码，在第一个“ ``` ”后添加语言名称获得不同的高亮效果</p>
+<p>如：cpp，python，swift</p>
+<h3 id="_17">对齐方式</h3>
+<pre><code>&lt;center&gt;行中心对齐&lt;/center&gt;
+&lt;p align=&quot;left&quot;&gt;行左对齐&lt;/p&gt;
+&lt;p align=&quot;right&quot;&gt;行右对齐&lt;/p&gt;
+</code></pre>
+<p><center>行中心对齐</center></p>
+<p align="left">行左对齐</p>
+<p align="right">行右对齐</p>
+
+<h3 id="_18">分割线</h3>
+<pre><code>* * *
+***
+- - -
+---
+</code></pre>
+<hr />
+<hr />
+<hr />
+<hr />
+<h3 id="_19">换行</h3>
+<p>不同markdown编辑器可能有不同的换行方式，最简单为直接敲回车</p>
+<p>markdown文本内的连续两个或多个回车会被替换为一个回车</p>
+<h2 id="_20">高级</h2>
+<h3 id="_21">设置字体/颜色</h3>
+<pre><code>&lt;font face=&quot;宋体&quot; color=blue size=5&gt;蓝色的字～&lt;/font&gt;
+</code></pre>
+<p><font face="宋体" color=blue size=5>蓝色的字～</font></p>
+<h4 id="_22">常用颜色</h4>
+<p>浏览器支持的所有颜色请跳转参考</p>
+<p><a href="https://htmlcolorcodes.com/zh/yanse-ming" title="htmlcolorcodes.com">现代浏览器支持的140种已命名的颜色</a></p>
+<p>常用颜色名称:
+* 按网站顺序排列
+* orange pink  gold yellow purple greenyellow lightgreen green aqua lightblue blue wheat brown white snow linen silver gray black</p>
+<table>
+<thead>
+<tr>
+<th>最常用</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color=red>red</font></td>
+<td><font color=greenyellow>greenyellow</font></td>
+</tr>
+<tr>
+<td><font color=orange>orange</font></td>
+<td><font color=lightgreen>lightgreen</font></td>
+</tr>
+<tr>
+<td><font color=yellow>yellow</font></td>
+<td><font color=lightblue>lightblue</font></td>
+</tr>
+<tr>
+<td><font color=green>green</font></td>
+<td><font color=pink>pink</font></td>
+</tr>
+<tr>
+<td><font color=aqua>aqua</font></td>
+<td><font color=gold>gold</font></td>
+</tr>
+<tr>
+<td><font color=blue>blue</font></td>
+<td><font color=silver>silver</font></td>
+</tr>
+<tr>
+<td><font color=purple>purple</font></td>
+<td><font color=brown>brown</font></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_23">锚点</h3>
+<p>也就是 <code>跳转</code></p>
+<pre><code>1. [点击这里跳转到第一段](#jump1)
+2. [点击这里跳转到第二段](#jump2）
+
+### &lt;span id=&quot;jump1&quot;&gt;第一段&lt;/span&gt;
+
+### &lt;span id=&quot;jump2&quot;&gt;第二段&lt;/span&gt;
+</code></pre>
+<pre><code>&lt;span id=&quot;now&quot;&gt;当前位置&lt;/span&gt;
+点击[这里](#top)跳转到开头
+点击[这里](#bottom)跳转到结尾
+</code></pre>
+<p><span id="now"><strong>当前位置</strong></span></p>
+<p>点击<a href="#top">这里</a>跳转到开头</p>
+<p>点击<a href="#bottom">这里</a>跳转到结尾  </p>
+<h3 id="_24">注脚</h3>
+<pre><code>使用 Markdown[^1]可以效率的书写文档, 直接转换成 HTML[^2]。
+
+[^1]:Markdown是一种纯文本标记语言
+[^2]:HyperText Markup Language 超文本标记语言
+</code></pre>
+<p>使用 Markdown<a href="Markdown是一种纯文本标记语言">^1</a>可以效率的书写文档, 直接转换成 HTML[^2]。</p>
+<p>点击<a href="#bottom">这里</a>跳转到结尾查看<span id="footnote"><strong>注脚</strong></span>的显示效果</p>
+<p>[^2]:HyperText Markup Language 超文本标记语言</p>
+<h3 id="_25">多级引用</h3>
+<pre><code>&gt;&gt;&gt; 请问 Markdwon 怎么用？ - 小白
+
+&gt;&gt; 自己看教程！ - 愤青
+
+&gt; 教程在哪？ - 小白
+
+`[^_^]: # 无法显示时记得空行`
+</code></pre>
+<p>不同编辑器的显示情况不同</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>请问 Markdwon 怎么用？ - 小白</p>
+</blockquote>
+<p>自己看教程！ - 愤青</p>
+</blockquote>
+<p>教程在哪？ - 小白</p>
+</blockquote>
+<h3 id="latex">LaTeX公式</h3>
+<ul>
+<li>在数学公式的前后加<code>$</code>是行内公式</li>
+</ul>
+<pre><code>我们在初中数学课上已经对一次函数$y=x+a$有所了解。
+</code></pre>
+<p>我们在初中数学课上已经对一次函数$y=x+a$有所了解。</p>
+<ul>
+<li>在数学公式的前后加<code>$$</code>是独占一行的公式</li>
+</ul>
+<pre><code>下面我们来认识一下二次函数$$y=ax^2+bx+c$$
+</code></pre>
+<p>下面我们来认识一下二次函数  </p>
+<p>$$y=ax^2+bx+c$$</p>
+<hr />
+<pre><code>行内公式：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$
+块级公式：
+$$  x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
+$$ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =
+1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
+{1+\frac{e^{-8\pi}} {1+\ldots} } } } $$
+</code></pre>
+<p>行内公式：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$</p>
+<p>块级公式：</p>
+<p>$$x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$</p>
+<p>$$\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}{1+\frac{e^{-8\pi}} {1+\ldots} } } }$$</p>
+<hr />
+<p>来看看两个重要极限  </p>
+<p>$$\displaystyle\lim_{x \rightarrow 0}\frac{\sin x}{x} = 1$$</p>
+<p>$$\displaystyle\lim_{x \rightarrow + \infty}(1 + \frac{1}{x})^x = e$$</p>
+<h2 id="_26">其他</h2>
+<h3 id="_27">转义字符</h3>
+<p>通过在Markdown字符前使用\来忽略（或转义）Markdown格式。</p>
+<p>Markdown允许您使用反斜杠转义来生成文字字符，否则这些字符在Markdown的格式化语法中具有特殊含义。 例如，如果您想用文字星号包围一个单词，则可以在星号之前使用反斜杠，如<code>\*literal asterisks\*</code>  *literal asterisks*</p>
+<p>Markdown为以下字符提供反斜杠转义(但是CSDN不太支持)：</p>
+<p>\反斜杠 `反引号 *星号 _下划线 {}大括号 []中括号 ()小括号  #井号 +加号 -减号 .英文句号 !英文感叹号</p>
+<h3 id="html">内联 HTML 语法/特殊字符自动转义</h3>
+<p>对于 Markdown 中未包含的标签, 可以直接使用 HTML标签，例如用 HTML <code>&lt;a&gt;</code> 标签替代 Markdown 的链接语法</p>
+<p>在 HTML 中, 有一些字符需要特殊对待，如果你想将它们用作字面量, 则需要将它们转义为字符实体</p>
+<table>
+<thead>
+<tr>
+<th>特殊字符</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td><code>&amp;amp;</code></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td><code>&amp;lt;</code></td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td><code>&amp;gt;</code></td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td><code>&amp;quot;</code> <code>&amp;#34;</code></td>
+</tr>
+<tr>
+<td>&apos;</td>
+<td><code>&amp;apos;</code> <code>&amp;#39;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_28">注释</h3>
+<pre><code>&lt;div style='display: none'&gt;
+注释
+&lt;/div&gt;
+</code></pre>
+<pre><code>&lt;!-- 注释 --&gt;
+</code></pre>
+<pre><code>[//]: # (哈哈我是最强注释1，不会在浏览器中显示。)
+[^_^]: # (哈哈我是最萌注释2，不会在浏览器中显示。)
+</code></pre>
+<h3 id="_29">空格</h3>
+<pre><code>【1】 &amp;nbsp; 半角的不断行的空白格（推荐使用）
+【2】 &amp;ensp; 半角的空格
+【3】 &amp;emsp; 全角的空格
+</code></pre>
+<ul>
+<li>【1】 &nbsp; 半角的不断行的空白格（推荐使用）</li>
+<li>【2】 &ensp; 半角的空格</li>
+<li>【3】 &emsp; 全角的空格</li>
+</ul>
+<hr />
+<p>同时推荐这个网站去学习基础markdown语法：<a href="http://www.runoob.com/">runoob.com</a></p>
+
+<p><span id="bottom"></span></p>
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+          data-repo="Cola-Pig1121/cpwiki"
+          data-repo-id="R_kgDOOwFdqg"
+          data-category="Announcements"
+          data-category-id="sDIC_kwDOOwFdqs4Cqj-M"
+          data-mapping="url"
+          data-strict="0"
+          data-reactions-senabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - 2025 Cola Pig 
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+   
+    <font color="#B9B9B9">
+      <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
+    本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script>
+    <span id="finicount_views"></span>    &nbsp;|&nbsp;
+    <footer>
+      <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a>
+    </footer>
+  </div>
+      </font>
+
+      <style>
+        .footer-visit-count {
+            height: fit-content;
+            min-height: 55px; /* 根据实际情况调整此高度 */
+        }
+        </style>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
