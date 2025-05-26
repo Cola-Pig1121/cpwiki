@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -800,6 +805,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    免费搭建博客技巧
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -811,6 +829,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      我们可以简单估计一下正常建站需要花的钱：
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      我们需要以下这些东西：
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      进行以下步骤：
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1034,6 +1096,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      我们可以简单估计一下正常建站需要花的钱：
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      我们需要以下这些东西：
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      进行以下步骤：
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1063,30 +1160,73 @@
 
   <h1>免费搭建博客技巧</h1>
 
-<p>众所周知，搭建一个博客网站是一件费力不讨好的事情，而且还非常耗费钱财：
-我们可以简单估计一下正常建站需要花的钱：
-1. 云服务器/虚拟主机：0-500+￥/Y（注意，这里云服务器是断层式的，几乎没有永久免费的，但Oracle玩家狂喜）
-2. 自己的域名：0-5000+￥/Y（这个真的是上不封顶）
-3. 各种额外开支（包括CDN）：0-100￥/Y（Cloudflare虽然经常ip被污染，但白嫖很香）</p>
-<p>那么综上，我们可以发现，各项需求都是有不用花钱的方式的，但是如果要实现完全免费，我们首先需要一张里面有点小钱的visa卡，还需要做好域名无法NS的准备（免费域名基本上能NS的没几个），而这些都不太适合我们这样的养猪型玩家，那有没有什么不用那么麻烦，又可以快速搭建起自己的网站的方式呢？</p>
+<p>众所周知，搭建一个博客网站是一件费力不讨好的事情，而且还非常耗费钱财：</p>
+<h3 id="_1">我们可以简单估计一下正常建站需要花的钱：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>云服务器/虚拟主机：0-500+￥/Y（注意，这里云服务器是断层式的，几乎没有永久免费的，但Oracle玩家狂喜）</li>
+<li>自己的域名：0-5000+￥/Y（这个真的是上不封顶）</li>
+<li>各种额外开支（包括CDN）：0-100￥/Y（Cloudflare虽然经常ip被污染，但白嫖很香）</li>
+</ol>
+<p>那么综上，我们可以发现，各项需求都是有不用花钱的方式的，但是如果要实现完全免费，我们首先需要一张里面有点小钱的visa卡，还需要做好域名无法NS和申请SSL的准备（免费域名基本上能NS的没几个），而这些都不太适合我们这样的养猪型玩家，那有没有什么不用那么麻烦，又可以快速搭建起自己的网站的方式呢？</p>
 <p>有的，兄弟有的</p>
-<p>我们需要以下这些东西：</p>
+<h3 id="_2">我们需要以下这些东西：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ol>
 <li>一个热腾腾的<a href="https://github.com">GitHub</a>账号（冰的其实也行，但我们作为新时代的好少年要多喝热水）</li>
 <li>一个<a href="https://dynv6.com">dynv6</a>的账号（免费域名网站，虽然不支持NS，但我有小妙招）</li>
 <li><a href="https://hexo.io">Hexo</a>或者<a href="https://www.mkdocs.org">Mkdocs</a>等建站神器（这个我后续会发教程）</li>
 <li>一个<a href="https://render.com">Render</a>的账号（用GitHub登录）</li>
 </ol>
-<p>进行以下步骤：
-1. GitHub创建仓库（没有人不会吧）
-2. 在dynv6申请一个自己喜欢的域名（IPv4和Ipv6都可以先不用填）
-3. 建站工具建好后push到GitHub
-4. Render链接自己博客的仓库
-5. 这个时候，我们点开Render的设置界面，找到自定义域名，添加后，应该会显示：
-<code>DNS update needed to verify domain ownership</code>
-6. 此时，重点来了，用优雅的Win+R+"cmd"打开我们高贵的命令行，输入
-<code>ping example.v6.army</code>
-7. 打开dynv6的域名配置面板</p>
+<h3 id="_3">进行以下步骤：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>GitHub创建仓库（没有人不会吧）</li>
+<li>建站工具建好后push到GitHub</li>
+<li>Render链接自己博客的仓库</li>
+<li>这个时候，我们点开Render的设置界面，找到自定义域名，添加后，应该会显示：
+<code>DNS update needed to verify domain ownership</code></li>
+<li>此时，重点来了，用优雅的Win+R+"cmd"打开我们高贵的命令行，输入
+<code>ping example.onrender.com</code></li>
+<li>在dynv6申请一个自己喜欢的域名（IPv4填我们在步骤6中得到的IPv4）</li>
+<li>然后我们就进入到了收尾环节：为域名添加记录（注意后面有点的要加点）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Record</th>
+<th>Name</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNAME</td>
+<td>*</td>
+<td>example.onrender.com.</td>
+</tr>
+<tr>
+<td>CAA</td>
+<td></td>
+<td>letsencrypt.org（tag是issue，最好issuewild也加一个）</td>
+</tr>
+<tr>
+<td>CAA</td>
+<td></td>
+<td>pki.goog; cansignhttpexchanges=yes（tag是issue，最好issuewild也加一个）</td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td>_cf-custom-hostname</td>
+<td>example.hostname.renderdns.com.</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>mailo._domainkey</td>
+<td>内容看我下面的代码块（太长了）</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCy9qKIQOvCjnmGmtKWVTgXI+8JNwZevmCOYmg4ac+wPDqwQFZe7NgqSwJHH8JjZp3EczV+EBw4cYTUxqPfN0uQhFV7fdpzWQM32bCA9iyiHtnh8mkab5NbWTMKVkjLS6aLyj+Ag0Wk3sDFCupxrzdoFpzpfhc5AvIs9FmVxiRdhwIDAQAB
+</code></pre></div></td></tr></table></div>
+<p>然后就大功告成了，差不多等个半天ssl就申请到了（CDN高贵的Render会帮我们解决）</p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
