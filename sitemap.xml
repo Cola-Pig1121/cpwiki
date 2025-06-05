@@ -2,46 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cpwiki.v6.army/index1/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/link/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/liuyanban/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/tag/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
+    </url>
+    <url>
+         <loc>https://cpwiki.v6.army/Code/C%2B%2B/manacher/</loc>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/Code/CTF/PHP/PHP1/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/Code/Markdown/markdown/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/Code/Mkdocs/mkdocs1/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/GH/Website/free-build-site/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/Game/Adventure-x/start25/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/about/geren/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
     <url>
          <loc>https://cpwiki.v6.army/about/zcw/</loc>
-         <lastmod>2025-05-28</lastmod>
+         <lastmod>2025-06-05</lastmod>
     </url>
 </urlset>
